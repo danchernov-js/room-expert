@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Расчёт стоимости</title>
+    <script src="dist/index_bundle.js"></script>
+  </head>
+  <body>
+    <section class="calc">
+      <h1 class="calc-title">FTL: Прямая машина</h1>
+      <div class="row shift">
+        <div class="col">
+          <div class="step">
+            <div class="step-name">
+              <div class="step-name__num">1</div>
+              <h2 class="step-name__text">Маршрут</h2>
+            </div>
+            <div class="form">
+              <h3 class="form__name">Откуда</h3>
+              <input
+                class="form__input"
+                type="search"
+                autocomplete="on"
+                maxlenght="25"
+                name="city1"
+                placeholder=""
+                autofocus
+                required
+              />
+            </div>
+            <div class="form">
+              <h3 class="form__name">Куда</h3>
+              <input
+                class="form__input"
+                type="search"
+                autocomplete="on"
+                maxlenght="25"
+                name="city2"
+                placeholder=""
+                autofocus
+                required
+              />
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-name">
+              <div class="step-name__num">2</div>
+              <h2 class="step-name__text">Транспорт</h2>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <div class="form">
+                      <h3 class="form__name">Грузоподъёмность</h3>
+                      <select class="form__select" size="1" autofocus required>
+                        <option class="all-options default-option">
+                          Не выбрана
+                        </option>
+                        <option>0,5 тонны</option>
+                        <option>1,5 тонны</option>
+                        <option>3 тонны</option>
+                        <option>10 тонн</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form">
+                      <h3 class="form__name">Способ погрузки</h3>
+                      <select class="form__select" size="1" autofocus required>
+                        <option selected>Задняя</option>
+                        <option>Боковая</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-mob-hide"></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-name">
+              <div class="step-name__num">3</div>
+              <h2 class="step-name__text">Груз</h2>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="row-cargo">
+                  <div class="col-100">
+                    <div class="form">
+                      <h3 class="form__name">Тип груза</h3>
+                      <select class="form__select" size="1" autofocus required>
+                        <option>Не выбран</option>
+                        <option>Детские товары</option>
+                        <option>Одежда и обувь</option>
+                        <option>Стройматериалы</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-50 col-mob-hide">
+                    <div class="form">
+                      <h3 class="form__name">Класс опасности</h3>
+                      <select class="form__select" size="1" autofocus required>
+                        <option>Класс 1 Взрывчатые вещества и изделия</option>
+                        <option>Класс 2 Газы</option>
+                        <option>Класс 3 Легковоспламеняющиеся жидкости.</option>
+                        <option>
+                          Класс 4 Легковоспламеняющиеся твердые вещества,
+                          самореактивные вещества и твердые
+                          десенсибилизированные взрывчатые вещества.
+                        </option>
+                        <option selected>Класс 5 Окисляющие вещества.</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-50">
+                    <div class="form">
+                      <h3 class="form__name">Объявленная ценность, ₽</h3>
+                      <input
+                        class="form__select"
+                        placeholder="≥ 1"
+                        autofocus
+                        required
+                        type="search"
+                        autocomplete="on"
+                        maxlenght="4"
+                        name="value"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <details>
+                  <summary>
+                    <span class="details-span"
+                      >Требуется температурный режим</span
+                    >
+                  </summary>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form">
+                        <h3 class="form__name">От, °С</h3>
+                        <input
+                          class="form__select"
+                          placeholder="-20"
+                          autofocus
+                          required
+                          type="search"
+                          autocomplete="on"
+                          maxlenght="4"
+                          name="value"
+                        />
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form">
+                        <h3 class="form__name">До, °С</h3>
+                        <input
+                          class="form__select"
+                          placeholder="+20"
+                          autofocus
+                          required
+                          type="search"
+                          autocomplete="on"
+                          maxlenght="4"
+                          name="value"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+              <div class="col col-mob-hide"></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-name">
+              <div class="step-name__num">4</div>
+              <h2 class="step-name__text">Время</h2>
+            </div>
+            <div class="address">
+              <div class="address-title">
+                <h3 class="address-title__name">Когда прибыть на точку</h3>
+                <h3 class="address-title__name">700 км в день</h3>
+              </div>
+
+              <div class="address-time">
+                <div class="address-time__leftside">
+                  <input
+                    class="address-time__checkbox"
+                    name="address"
+                    id="custom-radio-1"
+                    type="radio"
+                  />
+                  <label for="custom-radio-1"></label>
+
+                  <input
+                    class="address-time__input"
+                    type="search"
+                    name="address1"
+                    value="Адрес не указан"
+                  />
+                </div>
+                <div class="address-time__rightside">
+                  <input
+                    class="address-time__button"
+                    type="button"
+                    value="НЕ ВЫБРАНО"
+                  />
+                </div>
+              </div>
+              <div class="address-time">
+                <div class="address-time__leftside">
+                  <input
+                    class="address-time__checkbox"
+                    name="address"
+                    id="custom-radio-2"
+                    type="radio"
+                  />
+                  <label for="custom-radio-2"></label>
+                  <input
+                    class="address-time__input"
+                    type="search"
+                    name="address2"
+                    value="Адрес не указан"
+                  />
+                </div>
+                <div class="address-time__rightside">
+                  <input
+                    class="address-time__button"
+                    type="button"
+                    value="НЕ ВЫБРАНО"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form">
+              <h3 class="form__name">Комментарий к заказу</h3>
+              <textarea
+                class="form__input comment"
+                type="text"
+                name="comment"
+                placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="hint">
+            <p>
+              Для расчета стоимости необходимо ввести параметры груза, пункты
+              отправки и прибытия.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>
