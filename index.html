@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Расчёт стоимости</title>
-    <script src="dist/index_bundle.js"></script>
   </head>
   <body>
-    <section class="calc">
+    <section class="calc" id="app">
       <h1 class="calc-title">FTL: Прямая машина</h1>
       <div class="row shift">
         <div class="col">
@@ -55,14 +54,8 @@
                   <div class="col">
                     <div class="form">
                       <h3 class="form__name">Грузоподъёмность</h3>
-                      <select class="form__select" size="1" autofocus required>
-                        <option class="all-options default-option">
-                          Не выбрана
-                        </option>
-                        <option>0,5 тонны</option>
-                        <option>1,5 тонны</option>
-                        <option>3 тонны</option>
-                        <option>10 тонн</option>
+                      <select v-model="selectedWeight" class="form__select" size="1" autofocus required>
+                        <option v-for="weight in weights">{{ weight }}</option>
                       </select>
                     </div>
                   </div>
@@ -70,8 +63,9 @@
                     <div class="form">
                       <h3 class="form__name">Способ погрузки</h3>
                       <select class="form__select" size="1" autofocus required>
-                        <option selected>Задняя</option>
-                        <option>Боковая</option>
+                        <option v-for="loading in loadings">
+                          {{ loading }}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -92,10 +86,7 @@
                     <div class="form">
                       <h3 class="form__name">Тип груза</h3>
                       <select class="form__select" size="1" autofocus required>
-                        <option>Не выбран</option>
-                        <option>Детские товары</option>
-                        <option>Одежда и обувь</option>
-                        <option>Стройматериалы</option>
+                        <option v-for="cargo in cargos">{{cargo}}</option>
                       </select>
                     </div>
                   </div>
@@ -103,15 +94,9 @@
                     <div class="form">
                       <h3 class="form__name">Класс опасности</h3>
                       <select class="form__select" size="1" autofocus required>
-                        <option>Класс 1 Взрывчатые вещества и изделия</option>
-                        <option>Класс 2 Газы</option>
-                        <option>Класс 3 Легковоспламеняющиеся жидкости.</option>
-                        <option>
-                          Класс 4 Легковоспламеняющиеся твердые вещества,
-                          самореактивные вещества и твердые
-                          десенсибилизированные взрывчатые вещества.
+                        <option v-for="hazardClass in hazardClasses">
+                          {{hazardClass}}
                         </option>
-                        <option selected>Класс 5 Окисляющие вещества.</option>
                       </select>
                     </div>
                   </div>
@@ -186,46 +171,25 @@
                 <h3 class="address-title__name">700 км в день</h3>
               </div>
 
-              <div class="address-time">
+              <div 
+                class="address-time" 
+                v-bind:class="{ 'address-time__hidden': isSelectedWeight(selectedWeight, address),
+                                'address-time__selected': isSelected(address)
+                              }"
+                v-for="address in addresses">
                 <div class="address-time__leftside">
                   <input
                     class="address-time__checkbox"
                     name="address"
-                    id="custom-radio-1"
+                    v-bind:id="'custom-radio-' + address.id"
+                    v-bind:value="address"
+                    v-model="selectedAddress"
                     type="radio"
                   />
-                  <label for="custom-radio-1"></label>
-
-                  <input
-                    class="address-time__input"
-                    type="search"
-                    name="address1"
-                    value="Адрес не указан"
-                  />
-                </div>
-                <div class="address-time__rightside">
-                  <input
-                    class="address-time__button"
-                    type="button"
-                    value="НЕ ВЫБРАНО"
-                  />
-                </div>
-              </div>
-              <div class="address-time">
-                <div class="address-time__leftside">
-                  <input
-                    class="address-time__checkbox"
-                    name="address"
-                    id="custom-radio-2"
-                    type="radio"
-                  />
-                  <label for="custom-radio-2"></label>
-                  <input
-                    class="address-time__input"
-                    type="search"
-                    name="address2"
-                    value="Адрес не указан"
-                  />
+                  <label v-bind:for="'custom-radio-' + address.id">
+                  <span class="address-time__address"
+                    >{{ address.address }}</span
+                  ></label>
                 </div>
                 <div class="address-time__rightside">
                   <input
@@ -245,6 +209,12 @@
                 placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу"
               ></textarea>
             </div>
+            <div class="form">
+              <h3 class="form__name">Ваш заказ:</h3>
+              <div class="total-order">
+                {{ order }}
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -259,4 +229,5 @@
     </section>
     <footer></footer>
   </body>
+  <script src="dist/index_bundle.js"></script>
 </html>

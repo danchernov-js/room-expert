@@ -6,6 +6,7 @@ $color5: #cfcfcf;
 $color6: #535353;
 $color7: #969696;
 $color8: #717174;
+$color9: #368651;
 
 %for-form-name {
   font-size: 13px;
@@ -179,14 +180,14 @@ details[open] summary:before {
   &-time {
     width: 100%;
     padding: 10px;
-    background: #4b4b4f;
+    background: $color4;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
     white-space: nowrap;
 
-    + & {
+    & + & {
       margin-top: 4px;
     }
 
@@ -200,7 +201,6 @@ details[open] summary:before {
           position: relative;
           padding-left: 20px;
           cursor: pointer;
-          background: $color4;
 
           &:before {
             content: "";
@@ -243,15 +243,24 @@ details[open] summary:before {
       }
     }
 
-    &__input {
+    &__address {
+      width: calc(100% - 20px);
       color: $color5;
       font-weight: normal;
       font-size: 15px;
       line-height: 19px;
       border: none;
-      background: $color4;
       outline: none;
     }
+
+    &__selected {
+      background: $color9;
+    }
+
+    &__hidden {
+      display: none;
+    }
+
     &__button {
       padding: 4px 14px 4px 13px;
       height: 24px;
@@ -263,14 +272,19 @@ details[open] summary:before {
       font-size: 13px;
       line-height: 16px;
       font-weight: normal;
+
       &:hover {
         background-color: $color8;
         color: $color2;
       }
+
       &:active {
         background-color: $color1;
         color: $color2;
       }
+    }
+    &__leftside {
+      flex: 1;
     }
   }
 }
@@ -299,6 +313,14 @@ details[open] summary:before {
     font-size: 15px;
     line-height: 18px;
   }
+}
+
+.total-order {
+  width: 100%;
+  padding: 10px;
+  background: $color4;
+  color: $color2;
+  box-sizing: border-box;
 }
 
 footer {
