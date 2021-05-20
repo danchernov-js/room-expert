@@ -27,6 +27,13 @@ $color9: #1b3323;
   margin: 0 8px 0 8px;
 }
 
+%for-step-names {
+  margin: 0;
+  padding-left: 8px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
 * {
   font-family: Helvetica;
 }
@@ -92,10 +99,7 @@ body {
     }
 
     &__text {
-      margin: 0;
-      padding-left: 8px;
-      font-size: 24px;
-      line-height: 30px;
+      @extend %for-step-names;
     }
   }
 }
@@ -321,6 +325,33 @@ details[open] summary:before {
   background: $color4;
   color: $color2;
   box-sizing: border-box;
+
+  &__name {
+    @extend %for-step-names;
+  }
+
+  &__value {
+    margin-left: 8px;
+  }
+
+  &__btn {
+    background-color: #be2b2b;
+    font-weight: bold;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 8px;
+
+
+    &:hover {
+      background-color: #db6c6c;
+      cursor: pointer;
+    }
+  }
 }
 
 footer {
