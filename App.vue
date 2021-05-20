@@ -64,7 +64,10 @@
                         size="1" 
                         autofocus 
                         required>
-                        <option v-for="cargo in cargos">{{cargo}}</option>
+                        <option 
+                          v-for="cargo in cargos"
+                          v-bind:key="cargo"
+                        >{{cargo}}</option>
                       </select>
                     </div>
                   </div>
@@ -77,7 +80,10 @@
                         size="1" 
                         autofocus 
                         required>
-                        <option v-for="hazardClass in hazardClasses">
+                        <option 
+                          v-for="hazardClass in hazardClasses"
+                          v-bind:key="hazardClass"
+                        >
                           {{hazardClass}}
                         </option>
                       </select>
@@ -162,7 +168,9 @@
                 v-bind:class="{ 'address-time__hidden': isSelectedWeight(selectedWeight, address),
                                 'address-time__selected': isSelected(address)
                               }"
-                v-for="address in addresses">
+                v-for="address in addresses"
+                v-bind:key="address"
+              >
                 <div class="address-time__leftside">
                   <input
                     class="address-time__checkbox"

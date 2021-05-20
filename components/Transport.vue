@@ -17,7 +17,7 @@
                 autofocus 
                 required
               >
-                <option v-for="weight in weights">{{ weight }}</option>
+                <option v-for="weight in weights" v-bind:key="weight">{{ weight }}</option>
               </select>
             </div>
           </div>
@@ -31,7 +31,7 @@
                 autofocus 
                 required
               >
-                <option v-for="loading in loadings">
+                <option v-for="loading in loadings" v-bind:key="loading">
                   {{ loading }}
                 </option>
               </select>
