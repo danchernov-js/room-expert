@@ -7,8 +7,102 @@
     <title>Расчёт стоимости</title>
   </head>
   <body>
-    <section id="app"></section>
-    <footer></footer>
+    <div class="calc">
+      <h1 class="calc-name">Расчет стоимости натяжных потолков с установкой</h1>
+      <div class="calc-sections">
+        <div class="calc-section calc-section-mat">
+          <p class="calc-section__name">1. Материал</р>
+          <div class="calc-section__container">
+            <div class="calc-section__box">
+              <p class="calc-section__box-name">Тип фактуры</p>
+              <div class="calc-section__box-items">
+                <input type="radio" class="calc-section__box-items-input" name="material" id="material1">
+                <label class="calc-section__box-items-label" for="material1">Матовые</label>
+                <input type="radio" class="calc-section__box-items-input" name="material" id="material2">
+                <label class="calc-section__box-items-label" for="material2">Глянцевые</label>
+                <input type="radio" class="calc-section__box-items-input" name="material" id="material3">
+                <label class="calc-section__box-items-label" for="material3">Сатиновые</label>
+                <input type="radio" class="calc-section__box-items-input" name="material" id="material4">
+                <label class="calc-section__box-items-label" for="material4">Тканевые</label>
+              </div>
+
+            </div>
+            <div class="calc-section__box">
+              <p class="calc-section__box-name">Производитель</p>
+              <div class="calc-section__box-items">
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor1">
+                <label class="calc-section__box-items-label" for="manufactor1">Classic</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor2">
+                <label class="calc-section__box-items-label" for="manufactor2">Pongs</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor3">
+                <label class="calc-section__box-items-label" for="manufactor3">Evolution</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor4">
+                <label class="calc-section__box-items-label" for="manufactor4">Teqtum</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor5">
+                <label class="calc-section__box-items-label" for="manufactor5">Premium</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor6">
+                <label class="calc-section__box-items-label" for="manufactor6">Lumfer</label>
+                <input type="radio" class="calc-section__box-items-input" name="manufactor" id="manufactor7">
+                <label class="calc-section__box-items-label" for="manufactor7">Cold Stretch</label>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="calc-section">
+          <p class="calc-section__name">2. Помещение</р>
+            <div class="calc-section__box-count">
+              <p class="calc-section__box-name">Площадь, м2</p>
+              <div class="calc-section__box-count-items">
+                <div class="calc-section__box-count-minus">-</div>
+                <p class="calc-section__box-count-counter">0</p>
+                <div class="calc-section__box-count-plus">+</div>
+              </div>
+            </div>
+            <div class="calc-section__box-count">
+              <p class="calc-section__box-name">Углы, шт.</p>
+              <div class="calc-section__box-count-items">
+                <div class="calc-section__box-count-minus">-</div>
+                <p class="calc-section__box-count-counter">0</p>
+                <div class="calc-section__box-count-plus">+</div>
+              </div>
+            </div>
+        </div>
+        <div class="calc-section">
+          <p class="calc-section__name">3. Освещение</р>
+            <div class="calc-section__box-count">
+              <p class="calc-section__box-name">Светильники, шт.</p>
+              <div class="calc-section__box-count-items">
+                <div class="calc-section__box-count-minus">-</div>
+                <p class="calc-section__box-count-counter">0</p>
+                <div class="calc-section__box-count-plus">+</div>
+              </div>
+            </div>
+            <div class="calc-section__box-count">
+              <p class="calc-section__box-name">Люстры, шт.</p>
+              <div class="calc-section__box-count-items">
+                <div class="calc-section__box-count-minus">-</div>
+                <p class="calc-section__box-count-counter">0</p>
+                <div class="calc-section__box-count-plus">+</div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <div class="calc-info">
+        <span class="calc-info__red">Если введённые вами параметры верны,</span> то это окончательная стоимость полотен с установкой! <br>
+                  Фактуру, цвет, аксессуары можно выбрать по образцам у замерщика.
+      </div>
+      <div class="calc-total">
+        <div class="calc-total__price">
+          <p class="calc-total__price-text">Итоговая стоимость: <span class="calc-total__price-num">2250 р</span></p>
+        </div>
+        <div class="calc-total__order">
+          <input type="tel" placeholder="Ваш телефон" class="calc-total__order-tel">
+          <button class="calc-total__order-button">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="dist/index_bundle.js"></script>
 </html>
